@@ -2,7 +2,7 @@
 - name: Create a container
   docker_container:
     name: casestudy-spring
-    image: 8460447701/my_first_repo:jenkins1
+    image: "{{ docker_image }}"
     ports:
     - "8080:8090"
   when:

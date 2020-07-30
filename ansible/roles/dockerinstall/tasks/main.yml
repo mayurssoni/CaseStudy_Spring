@@ -1,6 +1,17 @@
 ---
 # tasks file for docker
 
+- name: install packages
+  package:
+    name: "{{ core_dependencies_shared_packages + core_dependencies_packages }}"
+    state: present
+
+- name: try to install pip packages
+  pip:
+    name: "{{ core_dependencies_pip_packages }}"
+    state: present
+  failed_when: no
+
 - name: install python pip
   package:
     name: "{{ python_pip_packages }}"

@@ -5,4 +5,4 @@
   connection: local
 
   roles:
-    - { role: gcpinstance, hostname: automategcp }
+    - { role: gcpinstance, hostname: "{{ instance }}" }
