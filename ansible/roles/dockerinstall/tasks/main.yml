@@ -1,6 +1,16 @@
 ---
 # tasks file for docker
 
+- name: install python pip
+  package:
+    name: "{{ python_pip_packages }}"
+    state: present
+
+- name: update pip
+  pip:
+    name: pip
+    state: latest 
+
 - name: install docker
   package:
     name: "{{ docker_packages }}"
