@@ -1,9 +1,0 @@
-ansible_ssh_private_key_file: "{{ansible_env.HOME}}/.ssh/id_rsa"
-hostname: "main"
-machine_type: "f1-micro"
-open_ports: [{protocol: "smtp", port: "tcp:25", src: "127.0.0.1/32"}]
-region: "us-central1"
-zone: "us-central1-c"
-service_account_email: ""
-credentials_file: ""
-project_id: ""

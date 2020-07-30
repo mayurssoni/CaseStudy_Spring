@@ -1,0 +1,32 @@
+---
+- name: delete an instance
+  gcp_compute_instance:
+    name: "{{ hostname }}-vm"
+    zone: "{{ zone }}"
+    project: "{{ project_id }}"
+    state: absent
+
+- name: delete an address
+  gcp_compute_address:
+    name: "{{ hostname }}-address"
+    region: "{{ region }}"
+    project: "{{ project_id }}"
+    state: absent
+
+- name: delete a firewall
+  gcp_compute_firewall:
+    name: "{{ hostname }}-firewall"
+    project: "{{ project_id }}"
+    state: absent
+
+- name: register the existing network
+  gcp_compute_network:
+    name: "{{ hostname }}-net"
+    project: "{{ project_id }}"
+  register: network
+
+- name: delete a network
+  gcp_compute_network:
+    name: "{{ hostname }}-net"
+    project: "{{ project_id }}"
+    state: absent

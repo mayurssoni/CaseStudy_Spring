@@ -1,0 +1,9 @@
+---
+- name: install and run docker image
+  hosts: new_instances
+  gather_facts: no
+  become: yes
+  become_method: sudo
+
+  roles:
+    - role: dockerrun
