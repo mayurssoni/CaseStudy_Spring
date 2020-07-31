@@ -3,7 +3,7 @@
   gcp_compute_disk:
     name: "{{ hostname }}-disk"
     size_gb: 50
-    source_image: 'projects/centos-cloud/global/images/centos-7-v20190116'
+    source_image: 'projects/centos-cloud/global/images/centos-7-v20200714'
     zone: "{{ zone }}"
     project: "{{ project_id }}"
     auth_kind: "{{ auth_kind }}"
@@ -80,7 +80,7 @@
   register: instance
 
 - name: Wait for SSH to come up
-  wait_for: host={{ address.address }} port=22 delay=10 timeout=60
+  wait_for: host={{ address.address }} port=22 delay=10 timeout=100
 
 - name: Add host to groupname
   add_host: hostname={{ address.address }} groupname=new_instances
