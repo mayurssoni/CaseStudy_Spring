@@ -1,2 +1,2 @@
 # CaseStudy_Spring
-Updated to check if build triggers test2
+Updated to check if build triggers test3
