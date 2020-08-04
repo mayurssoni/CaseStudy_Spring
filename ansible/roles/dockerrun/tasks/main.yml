@@ -4,6 +4,6 @@
     name: casestudy-spring
     image: "{{ docker_image }}"
     ports:
-    - "8080:8090"
+    - "8080:8080"
   when:
     - ansible_connection != "docker"
