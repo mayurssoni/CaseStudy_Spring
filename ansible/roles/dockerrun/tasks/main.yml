@@ -7,5 +7,5 @@
     - "8080:8080"
   when:
     - ansible_connection != "docker"
-- debug:
-  msg: http://{{ inventory_hostname }}:8080 is URL for your application.
+
+- debug: msg="http://{{ inventory_hostname }}:8080 is URL for your application."
