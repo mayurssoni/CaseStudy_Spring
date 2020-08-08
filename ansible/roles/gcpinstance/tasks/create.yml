@@ -45,6 +45,7 @@
       ports: ['8080','22','80']
     target_tags:
     - docker-server
+    - http-server
     source_ranges: ['0.0.0.0/0']
     project: "{{ project_id }}"
     auth_kind: "{{ auth_kind }}"
@@ -75,6 +76,7 @@
     tags:
       items:
       - docker-server
+      - http-server
     scopes:
       - https://www.googleapis.com/auth/compute
   register: instance
