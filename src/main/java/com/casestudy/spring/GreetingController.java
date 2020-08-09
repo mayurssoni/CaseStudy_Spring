@@ -34,4 +34,26 @@ public class GreetingController {
                 model.addAttribute("ccount",ccount);
                 return "countcharacters";
         }
+
+//Usage /prime?num=number
+	@GetMapping("/prime")
+        public String prime(@RequestParam(name="num", required=true) String num, Model model) {
+		int number=Integer.parseInt(num);
+		boolean flag = false;
+		for(int i = 2; i <= number/2; ++i){
+               		// condition for nonprime number
+               		if(number % i == 0){
+				flag = true;
+                        	break;
+			}
+		}
+		String result;
+		if (!flag)
+			result="a prime";
+		else
+			result="not a prime";
+                model.addAttribute("num",num);
+		model.addAttribute("result", result);
+                return "prime";
+        }
 }

@@ -45,6 +45,17 @@ public class ApplicationTest {
                 mockMvc.perform(get("/countcharacters").param("word","TestString"))
                                 .andExpect(content().string(containsString("Number of Consonants: 8")));
         }
+	
+	@Test
+        public void primenum() throws Exception {
+                mockMvc.perform(get("/prime").param("num","29"))
+                                .andExpect(content().string(containsString("29 is a prime number.")));
+        }
 
+        @Test
+        public void primenum1() throws Exception {
+                mockMvc.perform(get("/prime").param("num","33"))
+                                .andExpect(content().string(containsString("33 is not a prime number.")));
+        }
 }
 
