@@ -19,7 +19,7 @@ public class ApplicationTest {
 	@Test
 	public void homePage() throws Exception {
 		mockMvc.perform(get("/index.html"))
-				.andExpect(content().string(containsString("Greetigs!!!")));
+				.andExpect(content().string(containsString("Greetings!!!")));
 	}
 
 	@Test
@@ -34,4 +34,17 @@ public class ApplicationTest {
 				.andExpect(content().string(containsString("Hello, Mayur!")));
 	}
 
+	@Test
+        public void countchartest() throws Exception {
+                mockMvc.perform(get("/countcharacters").param("word","TestString"))
+                                .andExpect(content().string(containsString("Number of Vowels: 2")));
+        }
+
+	@Test
+        public void countchartest1() throws Exception {
+                mockMvc.perform(get("/countcharacters").param("word","TestString"))
+                                .andExpect(content().string(containsString("Number of Consonants: 8")));
+        }
+
 }
+
