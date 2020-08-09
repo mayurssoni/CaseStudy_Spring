@@ -1,6 +1,7 @@
 package com.casestudy.spring;
 
-
+import java.util.Date;
+import java.text.SimpleDateFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -55,5 +56,26 @@ public class GreetingController {
                 model.addAttribute("num",num);
 		model.addAttribute("result", result);
                 return "prime";
+        }
+
+//Usage /age?birth=yyyy-mm-dd
+        @GetMapping("/age")
+        public String age(@RequestParam(name="birth", required=true) String birth, Model model) {
+		Date today = new Date();   
+		Date birthday = new Date();
+		try{
+			birthday = new SimpleDateFormat("yyyy-MM-dd").parse(birth);
+		}
+		catch (Exception e) {
+			int i;
+		}
+		long difference = today.getTime() - birthday.getTime();
+		int daysBetween = (int)(difference / (1000*60*60*24));
+		int monthsBetween = (daysBetween / 30);
+		int yearsBetween = (monthsBetween / 12);
+		model.addAttribute("years", yearsBetween);
+                model.addAttribute("months", monthsBetween);
+                model.addAttribute("days", daysBetween);
+                return "age";
         }
 }

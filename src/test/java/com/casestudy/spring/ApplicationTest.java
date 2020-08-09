@@ -57,5 +57,24 @@ public class ApplicationTest {
                 mockMvc.perform(get("/prime").param("num","33"))
                                 .andExpect(content().string(containsString("33 is not a prime number.")));
         }
+
+        @Test
+        public void age1() throws Exception {
+                mockMvc.perform(get("/age").param("birth","1995-07-04"))
+                                .andExpect(content().string(containsString("You are 25 years older!")));
+        }
+
+        @Test
+        public void age2() throws Exception {
+                mockMvc.perform(get("/age").param("birth","1995-07-04"))
+                                .andExpect(content().string(containsString("You are 305 months older!")));
+        }
+
+        @Test
+        public void age3() throws Exception {
+                mockMvc.perform(get("/age").param("birth","1995-07-04"))
+                                .andExpect(content().string(containsString("You are 9168 days older!")));
+        }
+
 }
 
